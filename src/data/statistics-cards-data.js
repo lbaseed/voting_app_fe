@@ -1,7 +1,6 @@
 import {
   BanknotesIcon,
   UserPlusIcon,
-  UserIcon,
   ChartBarIcon,
 } from "@heroicons/react/24/solid";
 
@@ -9,45 +8,45 @@ export const statisticsCardsData = [
   {
     color: "blue",
     icon: BanknotesIcon,
-    title: "Today's Money",
-    value: "$53k",
+    title: "Total Votes Casted",
+    value: "850,007",
     footer: {
       color: "text-green-500",
-      value: "+55%",
-      label: "than last week",
-    },
-  },
-  {
-    color: "pink",
-    icon: UserIcon,
-    title: "Today's Users",
-    value: "2,300",
-    footer: {
-      color: "text-green-500",
-      value: "+3%",
-      label: "than last month",
+      value: "55%",
+      label: "of votes cated",
     },
   },
   {
     color: "green",
     icon: UserPlusIcon,
-    title: "New Clients",
-    value: "3,462",
+    title: "Total Registered Voters",
+    value: "1,233,462",
     footer: {
       color: "text-red-500",
-      value: "-2%",
-      label: "than yesterday",
+      value: "",
+      label: "Bauchi North",
     },
   },
   {
-    color: "orange",
+    color: "green",
     icon: ChartBarIcon,
-    title: "Sales",
-    value: "$103,430",
+    title: "All Progressives Congress Votes",
+    value: "750,987",
     footer: {
       color: "text-green-500",
-      value: "+5%",
-      label: "than yesterday",
+      value: "88%",
+      label: "of Casted Votes",
+    },
+  },
+  {
+    color: "pink",
+    icon: ChartBarIcon,
+    title: "Peoples Democratic Party",
+    value: "103,430",
+    footer: {
+      color: "text-green-500",
+      value: "12%",
+      label: "of Casted Votes",
     },
   },
 ];

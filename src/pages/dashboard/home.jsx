@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   Typography,
   Card,
@@ -27,8 +27,14 @@ import {
   projectsTableData,
   ordersOverviewData,
 } from "@/data";
+import {useGetCountries, useGetStates, useGetPollingUnits} from "@/hooks/query_hooks";
+
 
 export function Home() {
+
+  const {data, error, loading} = useGetPollingUnits({wardId: 3, first:10, page:1})
+
+  console.log(loading, data, error)
   return (
     <div className="mt-12">
       <div className="mb-12 grid gap-y-10 gap-x-6 md:grid-cols-2 xl:grid-cols-2">

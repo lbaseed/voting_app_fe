@@ -6,7 +6,7 @@ const websiteViewsChart = {
   series: [
     {
       name: "Views",
-      data: [50, 20, 10, 22, 50, 10, 40],
+      data: [50, 20, 10, 22, 84.3, 10, 40],
     },
   ],
   options: {
@@ -20,7 +20,7 @@ const websiteViewsChart = {
     },
     xaxis: {
       ...chartsConfig.xaxis,
-      categories: ["M", "T", "W", "T", "F", "S", "S"],
+      categories: ["GID", "GAM", "ITG", "JMA", "KTG", "SHR", "ZAK"],
     },
   },
 };
@@ -73,7 +73,7 @@ const completedTasksChart = {
 export const statisticsChartsData = [
   {
     color: "blue",
-    title: "Website View",
+    title: "Voter Analysis per LGA",
     description: "Last Campaign Performance",
     footer: "campaign sent 2 days ago",
     chart: websiteViewsChart,
