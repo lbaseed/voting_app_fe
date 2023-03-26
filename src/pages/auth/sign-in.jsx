@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Card,
   CardHeader,
@@ -11,6 +12,20 @@ import {
 } from "@material-tailwind/react";
 
 export function SignIn() {
+  const [accessCode, setAccessCode] = useState("")
+  const navigate = useNavigate()
+
+  const handleAccess = () => {
+    if(accessCode.toLowerCase()==="dantanko")
+    {
+      navigate("/dashboard/votings")
+    }
+
+    if(accessCode.toLowerCase()==="sit-command")
+    {
+      navigate("/dashboard/home")
+    }
+  }
   return (
     <>
       <img
@@ -30,18 +45,24 @@ export function SignIn() {
             </Typography>
           </CardHeader>
           <CardBody className="flex flex-col gap-4">
-            <Input type="email" label="Email" size="lg" />
-            <Input type="password" label="Password" size="lg" />
+            <Input type="password" 
+            label="Access Code" 
+            size="lg" 
+            value={accessCode} 
+            onChange={(e) => setAccessCode(e.target.value)}
+            />
+              
             <div className="-ml-2.5">
-              <Checkbox label="Remember Me" />
+              {/* <Checkbox label="Remember Me" /> */}
             </div>
           </CardBody>
           <CardFooter className="pt-0">
-            <Button variant="gradient" fullWidth>
+            <Button variant="gradient" 
+            onClick={handleAccess} fullWidth>
               Sign In
             </Button>
             <Typography variant="small" className="mt-6 flex justify-center">
-              Don't have an account?
+              {/* Don't have an account?
               <Link to="/auth/sign-up">
                 <Typography
                   as="span"
@@ -51,7 +72,7 @@ export function SignIn() {
                 >
                   Sign up
                 </Typography>
-              </Link>
+              </Link> */}
             </Typography>
           </CardFooter>
         </Card>

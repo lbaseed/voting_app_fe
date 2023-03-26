@@ -78,6 +78,7 @@ export function Sidenav({ brandImg, brandName, routes }) {
                       }
                       className="flex items-center gap-4 px-4 capitalize"
                       fullWidth
+                      onClick={() => setOpenSidenav(dispatch, false)}
                     >
                       {icon}
                       <Typography

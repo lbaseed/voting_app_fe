@@ -41,13 +41,12 @@ export function Footer({ brandName, brandLink, routes }) {
 }
 
 Footer.defaultProps = {
-  brandName: "Creative Tim",
-  brandLink: "https://www.creative-tim.com",
+  brandName: "Ashalt Worldwide Solution",
+  brandLink: "https://aws.com.ng",
   routes: [
-    { name: "Creative Tim", path: "https://www.creative-tim.com" },
-    { name: "About Us", path: "https://www.creative-tim.com/presentation" },
-    { name: "Blog", path: "https://www.creative-tim.com/blog" },
-    { name: "License", path: "https://www.creative-tim.com/license" },
+    { name: "AWS Site", path: "https://www.aws.com.ng" },
+    { name: "About Us", path: "https://aws.com.ng/about" },
+    { name: "Blog", path: "https://aws.com.ng/store" },
   ],
 };
 

@@ -70,11 +70,17 @@ export const GET_STATE = gql`
 export const GET_LGAS = gql`
     ${CORE_LGA_FIELDS}
     ${CORE_WARD_FIELDS}
+    ${CORE_POLLING_UNIT_FIELDS}
     query getAllLgas($state_id: ID!){
         allLgas(state_id: $state_id) {
             ...coreLgaFields
             wards {
                 ...coreWardFields
+                pollingUnits {
+                    ...corePollingUnitFields
+                    inec_ref
+                    registered_voters
+                }
             }
         }
     }
@@ -88,6 +94,11 @@ export const GET_LGA = gql`
             ...coreLgaFields
             wards {
                 ...coreWardFields
+                pollingUnits {
+                    inec_ref
+                    registered_voters
+                    ...corePollingUnitFields
+                }
             }
         }
     }
@@ -100,6 +111,8 @@ export const GET_WARDS = gql`
         allWards(lga_id: $lga_id){
             ...coreWardFields
             pollingUnits {
+                inec_ref
+                registered_voters
                 ...corePollingUnitFields
             }
         }
@@ -113,6 +126,8 @@ export const GET_WARD = gql`
        getWard(uuid: $ward_uuid){
             ...coreWardFields
             pollingUnits {
+                inec_ref
+                registered_voters
                 ...corePollingUnitFields
             }
         }
@@ -158,6 +173,27 @@ export const GET_ELECTION = gql`
             ...coreElectionFields
             electionDetails{
             ...coreElectionDetailFields
+                candidate {
+                    first_name
+                    last_name
+                    photo
+                }
+            }
+        }
+    }
+`
+
+export const GET_ELECTION_STAT = gql`
+    query gqlGetElectionStat($uuid: ID){
+        getElection(uuid: $uuid) {
+            electionDetails {
+                politicalParty {
+                    id
+                    name
+                    electionDetail {
+                        total_votes
+                    }
+                }
             }
         }
     }
@@ -169,6 +205,8 @@ export const GET_POLLING_UNITS = gql`
     query getAllPollingUnits($wardId: ID! $first: Int = 25 $page: Int = 1) {
         allPollingUnits(ward_id: $wardId first: $first page: $page){
             data {
+                inec_ref
+                registered_voters
                 ...corePollingUnitFields
             }
             paginatorInfo {
@@ -184,6 +222,8 @@ export const GET_POLLING_UNIT = gql`
     ${CORE_VOTE_COUNT_FIELDS}
     query getPollingUnit($uuid: ID!) {
         getPollingUnit(uuid: $uuid) {
+            inec_ref
+            registered_voters
             ...corePollingUnitFields
             ward {
             ...coreWardFields
@@ -279,6 +319,15 @@ export const GET_AGENT = gql`
     query getAgent($agent_uuid: ID!){
         getAgent(uuid: $agent_uuid){
             ...coreAgentFields
+        }
+    }
+`
+
+export const GET_POLLING_UNIT_STAT = gql`
+    query gqlPollingUnitStat {
+        getTotalRegisteredVoters {
+            totalPollingUnits
+            totalVoters
         }
     }
 `

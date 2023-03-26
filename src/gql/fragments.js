@@ -81,7 +81,7 @@ export const CORE_POLLING_UNIT_FIELDS = gql`
     fragment corePollingUnitFields on PollingUnit {
         id,
         uuid,
-        name
+        name,
     }
 `
 
@@ -94,7 +94,7 @@ export const CORE_VOTING_FIELDS = gql`
         votes_casted,
         valid_votes,
         invalid_votes,
-        date
+        date,
     }
 `
 export const CORE_AGENT_FIELDS = gql`

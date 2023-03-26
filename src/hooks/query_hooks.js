@@ -1,4 +1,4 @@
-import { GET_COUNTRIES, GET_POLLING_UNITS, GET_STATES } from "@/gql/queries"
+import { GET_COUNTRIES, GET_ELECTION, GET_ELECTIONS, GET_LGAS, GET_POLITICAL_PARTIES, GET_POLLING_UNITS, GET_STATES, GET_VOTINGS, GET_WARDS } from "@/gql/queries"
 import { useQuery } from "@apollo/client"
 
 
@@ -17,14 +17,53 @@ export const useGetStates = (variables) => {
     variables
   })
   return { 
-    states_data : data, 
-    states_error : error, 
-    states_loading : loading 
+    data : data, 
+    error : error, 
+    loading : loading 
   }
 }
 
-export const useGetPollingUnits = (variables) => {
+export const useGetLgas = (variables) => {
 
+  const { data, error, loading } = useQuery(GET_LGAS, {
+    variables
+  })
+  return { 
+    data : data, 
+    error : error, 
+    loading : loading 
+  }
+}
+
+export const useGetWards = (variables) => {
+
+  const { data, error, loading } = useQuery(GET_WARDS, {
+    variables
+  })
+  return { 
+    data : data, 
+    error : error, 
+    loading : loading 
+  }
+}
+
+export const useGetVotings = (variables) => {
+
+  const { data, error, loading } = useQuery(GET_VOTINGS, {
+    variables
+  })
+  return { 
+    data : data, 
+    error : error, 
+    loading : loading 
+  }
+}
+
+// export const useGetVoteCount = () => {
+//   const {data, error, loading} = useQuery()
+// }
+
+export const useGetPollingUnits = (variables) => {
   const { data, error, loading } = useQuery(GET_POLLING_UNITS, {
     variables
   })
@@ -33,4 +72,18 @@ export const useGetPollingUnits = (variables) => {
   }
 }
 
+export const useGetParties = () => {
+  const {data, error, loading} = useQuery(GET_POLITICAL_PARTIES)
+  return {data, error, loading} 
+}
+
+export const useGetElections = () => {
+  const {data, error, loading} = useQuery(GET_ELECTIONS)
+  return {data, error, loading}
+}
+
+export const useGetElection = (variables) => {
+  const {data, error, loading} = useQuery(GET_ELECTION, { variables })
+  return {data, error, loading}
+}
 
